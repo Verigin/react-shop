@@ -7,7 +7,7 @@ class DropDown extends Component {
     }
     toggleState () {
         this.setState({ 'isOpened' : !this.state.isOpened })
-        this.setState({ 'background' : 'black' })
+        //this.setState({ 'background' : 'black' })
     }
     render() {
         console.log('isOpened', this.state.isOpened);
