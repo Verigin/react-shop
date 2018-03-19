@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './App.css';
 import DropDown from './DropDown';
 
 const menu = [
@@ -12,7 +12,7 @@ const menu = [
 class App extends Component {
   render() {
     return (
-      <div>      
+      <div className="container">      
         <DropDown menu={menu}/>
       </div>
     )

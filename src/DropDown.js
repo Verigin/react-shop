@@ -1,4 +1,5 @@
 import React, { Component  } from 'react';
+import './DropDown.css';
 
 class DropDown extends Component {    
     constructor (props) {
@@ -18,8 +19,8 @@ class DropDown extends Component {
         return (        
             <div>
                 <form onSubmit={this.onSubmit}>
-                    <input placeholder="email" onChange={this.onChange}/> 
-                    <button >Ok</button>
+                    <input className="emailField" placeholder="email" onChange={this.onChange}/> 
+                    <button className="submitBtn">Ok</button>
                 </form>    
             </div>
     )
