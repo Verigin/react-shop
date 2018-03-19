@@ -8,6 +8,11 @@
 // registerServiceWorker();
 
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
 const store = createStore(playList);
 
 function playList(state = [],action) {
@@ -31,3 +36,10 @@ store.subscribe(() => {
 store.dispatch({type: 'ADD_TRACK', playload: 'Smells like spirit'});
 store.dispatch({type: 'ADD_TRACK', playload: 'yo!'});
 store.dispatch({type: 'ADD_TRACK', playload: 'yo!!!!'});
+
+ReactDOM.render(
+<Provider store={store}>
+<App />
+</Provider>, 
+document.getElementById('root')
+);
