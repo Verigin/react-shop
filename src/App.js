@@ -8,7 +8,8 @@ class App extends Component {
     this.onChange = this.onChange.bind(this);
   }
   onChange (event) {        
-    // this.props.testStore.dispatch({type: 'ADD_TRACK', playload: event.target.value});
+    console.log('addTrack', this.trackInput.value);
+    this.props.onAddTrack(this.trackInput.value);
   }  
   render() {
     console.log("текущее состояние",this.props.testStore);
@@ -17,8 +18,8 @@ class App extends Component {
       //   <DropDown menu={menu}/>
       // </div>   
       <div>
-        <input type="text" />
-        <button /* onClick={this.onChange}*/>Add track</button>
+        <input type="text" ref={(input) => {this.trackInput = input}}/>
+        <button  onClick={this.onChange.bind(this)}>Add track</button>
         <ul>
           {this.props.testStore.map((item,index)=>
             <li key={index}>{item}</li>
@@ -33,5 +34,9 @@ export default connect (
   state => ({
     testStore: state
   }),
-  dispatch => ({})
+  dispatch => ({
+    onAddTrack: (trackName) => {
+      dispatch({type: 'ADD_TRACK', playload: trackName})
+    }
+  })
 )(App);
